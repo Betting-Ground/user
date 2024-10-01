@@ -14,7 +14,7 @@ import static lombok.AccessLevel.*;
 @Inheritance(strategy = JOINED)
 @Getter
 @NoArgsConstructor(access = PROTECTED)
-public abstract class User {
+public class User {
 
     private static final String USER_TOKEN_PREFIX = "user_";
 
