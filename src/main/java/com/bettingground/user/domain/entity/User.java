@@ -1,5 +1,6 @@
 package com.bettingground.user.domain.entity;
 
+import com.bettingground.user._common.*;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,15 +16,26 @@ import static lombok.AccessLevel.*;
 @NoArgsConstructor(access = PROTECTED)
 public abstract class User {
 
+    private static final String USER_TOKEN_PREFIX = "user_";
+
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "user_id")
     private Long id;
+    private String userToken;
     @Column(nullable = false, unique = true, updatable = false)
     private String username;
     @Column(nullable = false)
     private String password;
     @Enumerated(STRING)
     private Role role;
+
+    @Builder
+    public User(String username, String password, Role role) {
+        this.userToken = TokenGenerator.randomCharacterWithPrefix(USER_TOKEN_PREFIX);
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
 
 }
