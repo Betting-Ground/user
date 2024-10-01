@@ -1,6 +1,7 @@
 package com.bettingground.user.domain.entity;
 
 import com.bettingground.user._common.*;
+import com.bettingground.user.domain.*;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,7 +15,7 @@ import static lombok.AccessLevel.*;
 @Inheritance(strategy = JOINED)
 @Getter
 @NoArgsConstructor(access = PROTECTED)
-public class User {
+public class User extends BaseEntity {
 
     private static final String USER_TOKEN_PREFIX = "user_";
 
