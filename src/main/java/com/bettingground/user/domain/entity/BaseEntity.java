@@ -1,4 +1,4 @@
-package com.bettingground.user.domain;
+package com.bettingground.user.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

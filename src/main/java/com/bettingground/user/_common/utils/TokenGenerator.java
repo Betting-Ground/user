@@ -1,6 +1,6 @@
-package com.bettingground.user._common;
+package com.bettingground.user._common.utils;
 
-import org.apache.commons.lang3.*;
+import org.apache.commons.lang3.RandomStringUtils;
 
 public class TokenGenerator {
 

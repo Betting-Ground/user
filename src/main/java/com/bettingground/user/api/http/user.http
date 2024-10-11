@@ -1,0 +1,24 @@
+### signup PLAYER
+POST http://localhost:9091/api/v1/users
+Content-Type: application/json
+
+{
+  "username": "panjun0709",
+  "password": "panjun0000",
+  "role": "PLAYER",
+  "nickname": "Biggu"
+}
+
+### signup ADMIN
+POST http://localhost:9091/api/v1/users
+Content-Type: application/json
+
+{
+  "username": "admin0709",
+  "password": "admin000",
+  "role": "ADMIN",
+  "nickname": "ADMIN-01"
+}
+
+### withdrawal
+DELETE http://localhost:9091/api/v1/users/user_C2ZGbEgaaoVNxlX

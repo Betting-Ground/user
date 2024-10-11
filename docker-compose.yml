@@ -1,0 +1,32 @@
+services:
+  user-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: user-service
+    ports:
+      - "9091:8080"
+    depends_on:
+      - mysql-server
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-server:3306/bettingground-user
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: 0000
+    restart: always
+
+  mysql-server:
+    image: mysql:latest
+    container_name: mysql-server
+    environment:
+      MYSQL_ROOT_PASSWORD: 0000
+      MYSQL_DATABASE: bettingground-user
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 0000
+    ports:
+      - "13306:3306"
+    volumes:
+      - user-db:/var/lib/mysql
+
+volumes:
+  user-db:
+    driver: local
